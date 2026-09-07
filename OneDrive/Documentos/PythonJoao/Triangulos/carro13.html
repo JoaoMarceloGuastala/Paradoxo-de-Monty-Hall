@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exposição 3D - AETHER X1</title>
+    
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #07090c;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center center;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60vw;
+            height: 60vh;
+            background: radial-gradient(ellipse, rgba(40, 70, 130, 0.15) 0%, transparent 60%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 1rem;
+            z-index: 10;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 700;
+            color: #f8f9fa;
+        }
+
+        .exhibition-grid {
+            display: flex;
+            width: 96%;
+            max-width: 1800px;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 3rem;
+            flex: 1;
+            z-index: 2;
+        }
+
+        .info-panel {
+            flex: 1;
+            background: linear-gradient(180deg, rgba(15, 18, 25, 0.85) 0%, rgba(10, 12, 15, 0.95) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .info-panel h2 {
+            font-size: 1.2rem; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #6a8bcf;
+            border-bottom: 1px solid rgba(106, 139, 207, 0.2);
+            padding-bottom: 0.5rem;
+            margin-bottom: -0.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem; 
+        }
+
+        .info-item h3 {
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 1.25rem; 
+            color: #e8eaed;
+            letter-spacing: 0.5px;
+        }
+
+        .info-item p {
+            font-size: 1.1rem; 
+            color: #8a9199;
+            line-height: 1.7; 
+        }
+
+        .model-container {
+            flex: 3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 100%;
+            min-height: 65vh;
+            --poster-color: transparent;
+            filter: drop-shadow(0px 50px 30px rgba(0, 0, 0, 0.6));
+        }
+
+        @media (max-width: 1024px) {
+            .exhibition-grid {
+                flex-direction: column;
+                width: 90%;
+            }
+            .model-container {
+                flex: 1;
+                min-height: 45vh;
+                order: -1; 
+            }
+            .info-panel {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+        <h1>MCLAREN F1 (2021)</h1>
+    </header>
+
+    <div class="exhibition-grid">
+        <div class="info-panel">
+            <h2>TECNOLOGIA INTEGRADA</h2>
+            
+            <div class="info-item">
+                <h3>DINÂMICA DE FLUIDOS COMPUTACIONAL (CFD)</h3>
+                <p>Carroceria projetada resolvendo equações de Navier-Stokes. Cria vórtices de ar hiper-precisos que fluem para trás, selando as laterais do assoalho e isolando a pressão interna.</p>
+            </div>
+            
+            <div class="info-item">
+                <h3>UNIDADE DE POTÊNCIA V6 HÍBRIDA</h3>
+                <p>A combinação mecânica mais eficiente do mundo: motor a combustão acoplado ao MGU-K (recuperação de energia cinética) e MGU-H (recuperação da energia térmica da turbina).</p>
+            </div>
+            
+            <div class="info-item">
+                <h3>TELEMETRIA VETORIAL</h3>
+                <p>Milhares de sensores processando gigabytes de dados vetoriais, escalares e gradientes de temperatura em tempo real por rádio-frequência, servindo de base para modelos matemáticos e probabilísticos da equipe.</p>
+            </div>
+        </div>
+
+        <div class="model-container">
+            <model-viewer src="13-Mclares2021F1.glb" alt="Modelo 3D McLaren F1" camera-controls auto-rotate rotation-per-second="25deg" shadow-intensity="2" shadow-softness="1.5" tone-mapping="neutral"></model-viewer>
+        </div>
+
+        <div class="info-panel">
+            <h2>ESPECIFICAÇÕES EXATAS</h2>
+            
+            <div class="info-item">
+                <h3>RELAÇÃO MASSA/POTÊNCIA</h3>
+                <p>Engenharia de materiais compostos de fibra de carbono operando no limite. O peso é mantido próximo a 752 kg (regulamento) para uma entrega de potência total próxima a 1000 cv.</p>
+            </div>
+            
+            <div class="info-item">
+                <h3>EFEITO SOLO (BERNOULLI)</h3>
+                <p>Aplicação extrema do Princípio de Bernoulli: o ar canalizado e acelerado debaixo do assoalho cria uma zona de pressão estática negativa brutal, sugando literalmente a massa do carro contra o asfalto.</p>
+            </div>
+            
+            <div class="info-item">
+                <h3>DESACELERAÇÃO E FORÇA G</h3>
+                <p>Discos de freio de carbono-carbono que operam otimamente acima de 1000°C. Ao frear para uma curva de baixa velocidade, o piloto experimenta vetores de força superiores a 5 G negativos.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+</html>

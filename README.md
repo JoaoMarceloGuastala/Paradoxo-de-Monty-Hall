@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Simulador do Paradoxo de Monty Hall
 
 ## O que é o paradoxo de Monty Hall?
@@ -37,7 +36,6 @@ Para rodar o script, cole o seguinte comando dentro do seu terminal (Lembre-se d
 python main.py
 ```
 
-=======
 # Simulador do Paradoxo de Monty Hall
 
 ## O que é o paradoxo de Monty Hall?
@@ -75,6 +73,3 @@ Para rodar o script, cole o seguinte comando dentro do seu terminal (Lembre-se d
 ```
 python main.py
 ```
-
->>>>>>> d54dcfc (Subindo os arquivos certos dessa vez)
-;)

@@ -8,7 +8,7 @@ tamanho_barra = 40
 
 while True:
     depuracao = "N"
-    print("="*50)
+    print("="*68)
     print("Bem vindo ao simulador do paradoxo de Monty Hall!") # Pequena introdução para deixar mais facil pra interagir.
 
     # Famoso sistema anti-usuario-burro
@@ -22,7 +22,7 @@ while True:
         print("Número de rodadas inválido!")
         continue
 
-    print("="*50)
+    print("="*68)
 
     if testes >= 10_000:
          pass
@@ -57,11 +57,13 @@ while True:
                         ganhou_mantendo += 1
                     else:
                         ganhou_trocando += 1 # Se você escolheu uma cabra (0), o apresentador é obrigado a abrir a outra cabra, ou seja, você ganha pontos em ganhou_trocando
+
+                    # Adicionado recentemente esse codigo serve para mostrar uma barra de progresso que aprendi a fazer recentemente.
                     if _ % 50000 == 0 or _ == testes - 1:
                         progresso = _ / testes
                         bloquinhos = int(tamanho_barra * progresso) 
                         
-                        desenho = '█' * bloquinhos + '-' * (tamanho_barra - bloquinhos)
+                        desenho = f"{Fore.GREEN}█{Fore.RESET}" * bloquinhos + f"{Fore.RED}─{Fore.RESET}" * (tamanho_barra - bloquinhos)
                         print(f'\r[{desenho}] {progresso:.1%} de testes realizados...', end='', flush=True)
                 
 
@@ -74,5 +76,5 @@ while True:
             if novamente != "S":
                 print("Obrigado por usar o simulador do paradoxo de Monty Hall!")
                 break
-    
 # 4/10/26 23:15 - Fim do códgo.
+# 10/10/26 23:40 - Atualização

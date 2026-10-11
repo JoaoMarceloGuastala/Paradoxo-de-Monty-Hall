@@ -4,6 +4,7 @@
 
 import random
 from colorama import Fore
+tamanho_barra = 40
 
 while True:
     depuracao = "N"
@@ -23,11 +24,14 @@ while True:
 
     print("="*50)
 
-    depuracao = input("Ativar depuração? (S/N)\n>>> ").strip().upper()[0] # Com o modo depuração ativado é possivel ver cada resultaodd individualmente.
-    if depuracao == "S":
-        depuracao = "S"
-        print("Depuração ativada! (Isso vai mostrar o resultado de cada rodada, então se você escolher muitas rodadas, vai ficar muito poluído!)")
-            
+    if testes >= 10_000:
+         pass
+    else:
+        depuracao = input("Ativar depuração? (S/N)\n>>> ").strip().upper()[0] # Com o modo depuração ativado é possivel ver cada resultaodd individualmente.
+        if depuracao == "S":
+            depuracao = "S"
+            print("Depuração ativada! (Isso vai mostrar o resultado de cada rodada, então se você escolher muitas rodadas, vai ficar muito poluído!)")
+                
     if testes <= 5_000_000 and testes > 0:
             ganhou_mantendo = 0
             ganhou_trocando = 0
@@ -53,7 +57,12 @@ while True:
                         ganhou_mantendo += 1
                     else:
                         ganhou_trocando += 1 # Se você escolheu uma cabra (0), o apresentador é obrigado a abrir a outra cabra, ou seja, você ganha pontos em ganhou_trocando
-
+                    if _ % 50000 == 0 or _ == testes - 1:
+                        progresso = _ / testes
+                        bloquinhos = int(tamanho_barra * progresso) 
+                        
+                        desenho = '█' * bloquinhos + '-' * (tamanho_barra - bloquinhos)
+                        print(f'\r[{desenho}] {progresso:.1%} de testes realizados...', end='', flush=True)
                 
 
             print(f"Resultado após {testes}:")
